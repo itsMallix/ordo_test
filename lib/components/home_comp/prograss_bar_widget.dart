@@ -19,7 +19,7 @@ class progressBar extends StatelessWidget {
     ];
 
     return Container(
-      height: 60.h,
+      height: 70.h,
       decoration: BoxDecoration(
         color: ColorSystem.white,
         borderRadius: BorderRadius.circular(10.r),
@@ -65,15 +65,16 @@ class progressBar extends StatelessWidget {
                       const Spacer(),
                   ],
                 ),
-                const SizedBox(height: 8),
+                SizedBox(height: 8.h),
                 Text(
                   steps[index],
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 10.sp,
                     color: index <= currentStep
                         ? ColorSystem.darkGreen
                         : Colors.grey,
                   ),
+                  textAlign: TextAlign.center,
                 ),
               ],
             ),
@@ -87,16 +88,16 @@ class progressBar extends StatelessWidget {
     if (index < currentStep) {
       return Container(
         width: 15.w,
-        height: 15.h,
+        height: 15.w,
         alignment: Alignment.center,
         decoration: const BoxDecoration(
           color: ColorSystem.darkGreen,
           shape: BoxShape.circle,
         ),
-        child: const Icon(
+        child: Icon(
           Icons.check,
           color: Colors.white,
-          size: 12,
+          size: 10.sp,
         ),
       );
     }
@@ -104,19 +105,19 @@ class progressBar extends StatelessWidget {
     if (index == currentStep) {
       return Container(
         width: 15.w,
-        height: 15.h,
+        height: 15.w,
         alignment: Alignment.center,
         decoration: const BoxDecoration(
           color: ColorSystem.darkGreen,
           shape: BoxShape.circle,
         ),
-        child: const Icon(Icons.access_time, color: Colors.white, size: 12),
+        child: Icon(Icons.access_time, color: Colors.white, size: 10.sp),
       );
     }
 
     return Container(
       width: 15.w,
-      height: 15.h,
+      height: 15.w,
       alignment: Alignment.center,
       decoration: BoxDecoration(
         color: Colors.grey.shade300,

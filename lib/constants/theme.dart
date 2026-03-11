@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ColorSystem {
@@ -20,35 +21,61 @@ class TextSystem {
   TextSystem._();
 
   static TextStyle h1 = TextStyle(
-    fontSize: 24,
+    fontSize: 24.sp,
     fontWeight: FontWeight.bold,
     fontFamily: GoogleFonts.outfit().fontFamily,
   );
   static TextStyle h2 = TextStyle(
-    fontSize: 20,
+    fontSize: 20.sp,
     fontWeight: FontWeight.bold,
     fontFamily: GoogleFonts.outfit().fontFamily,
   );
   static TextStyle h3 = TextStyle(
-    fontSize: 16,
+    fontSize: 16.sp,
     fontWeight: FontWeight.bold,
     fontFamily: GoogleFonts.outfit().fontFamily,
   );
 
   static TextStyle s1 = TextStyle(
-    fontSize: 18,
+    fontSize: 18.sp,
     fontWeight: FontWeight.normal,
     fontFamily: GoogleFonts.outfit().fontFamily,
   );
 
   static TextStyle b1 = TextStyle(
-    fontSize: 14,
+    fontSize: 14.sp,
     fontWeight: FontWeight.normal,
     fontFamily: GoogleFonts.outfit().fontFamily,
   );
   static TextStyle b2 = TextStyle(
-    fontSize: 12,
+    fontSize: 12.sp,
     fontWeight: FontWeight.normal,
     fontFamily: GoogleFonts.outfit().fontFamily,
   );
+}
+
+class ResponsiveSystem {
+  ResponsiveSystem._();
+
+  static const double mobileBreakpoint = 600;
+  static const double tabletBreakpoint = 1024;
+  static const double desktopMaxWidth = 1200;
+
+  static bool isMobile(BuildContext context) =>
+      MediaQuery.of(context).size.width < mobileBreakpoint;
+
+  static bool isTablet(BuildContext context) =>
+      MediaQuery.of(context).size.width >= mobileBreakpoint &&
+      MediaQuery.of(context).size.width < tabletBreakpoint;
+
+  static bool isDesktop(BuildContext context) =>
+      MediaQuery.of(context).size.width >= tabletBreakpoint;
+
+  static double getResponsiveWidth(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    if (width > desktopMaxWidth) {
+      return desktopMaxWidth;
+    }
+    return width;
+  }
 }

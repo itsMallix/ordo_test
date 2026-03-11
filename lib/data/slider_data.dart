@@ -18,6 +18,8 @@ List<SliderModel> sliderList = [
     price: 850000000,
     image: "assets/images/house_3.png",
     type: "Komersil",
+    denda: 8550000,
+    lateDays: 6,
   ),
   SliderModel(
     id: "881726478124",

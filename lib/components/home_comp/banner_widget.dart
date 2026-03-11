@@ -19,16 +19,16 @@ class BannerWidget extends StatelessWidget {
         itemBuilder: (context, index) {
           final banner = bannerList[index];
           return Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(8.0.r),
             child: Container(
               height: 120.h,
               width: 330.w,
-              padding: const EdgeInsets.fromLTRB(
-                24.0,
-                24.0,
+              padding: EdgeInsets.fromLTRB(
+                24.0.w,
+                24.0.h,
                 0,
-                24.0,
-              ).w.r,
+                24.0.h,
+              ),
               decoration: BoxDecoration(
                 color: banner.color,
                 borderRadius: BorderRadius.circular(15.r),
@@ -40,6 +40,8 @@ class BannerWidget extends StatelessWidget {
                     bottom: 0,
                     child: Image.asset(
                       banner.image,
+                      height: 100.h,
+                      fit: BoxFit.contain,
                     ),
                   ),
                   Column(
@@ -71,15 +73,15 @@ class BannerWidget extends StatelessWidget {
                           color: ColorSystem.white,
                         ),
                       ),
-
+                      SizedBox(height: 8.h),
                       Row(
                         children: [
                           Icon(
                             Icons.calendar_month,
                             color: ColorSystem.white,
-                            size: 20,
+                            size: 20.sp,
                           ),
-                          const SizedBox(width: 10),
+                          SizedBox(width: 10.w),
                           Text(
                             banner.datePeriode,
                             style: TextSystem.b1.copyWith(

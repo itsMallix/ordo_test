@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ordo_test/components/bottom_sheet/akad_sheet.dart';
 import 'package:ordo_test/components/bottom_sheet/administrasi_sheet.dart';
 import 'package:ordo_test/components/bottom_sheet/pemesanan_sheet.dart';
-import 'package:ordo_test/components/bottom_sheet/pengembangan_sheet.dart';
+import 'package:ordo_test/components/bottom_sheet/pembangunan_sheet.dart';
 import 'package:ordo_test/components/sub_menu/progress_circle.dart';
 import 'package:ordo_test/constants/theme.dart';
 import 'package:ordo_test/model/submenu_model.dart';
@@ -25,7 +25,7 @@ class ProgressCard extends StatelessWidget {
         sheet = const AdministrasiSheet();
         break;
       case "3":
-        sheet = const PengembanganSheet();
+        sheet = const PembangunanSheet();
         break;
       case "4":
         sheet = const AkadSheet();
@@ -43,7 +43,6 @@ class ProgressCard extends StatelessWidget {
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -56,6 +55,22 @@ class ProgressCard extends StatelessWidget {
         padding: EdgeInsets.fromLTRB(12.w, 12.h, 0.w, 0.h),
         child: Stack(
           children: [
+            Positioned(
+              right: 0,
+              bottom: 0,
+              child: Container(
+                height: 120.h,
+                width: 120.w,
+                decoration: BoxDecoration(
+                  color: phase.isActive
+                      ? ColorSystem.darkGreenShade
+                      : ColorSystem.bgColor,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(100.r),
+                  ),
+                ),
+              ),
+            ),
             Positioned(
               bottom: 0,
               right: 0,
@@ -71,7 +86,7 @@ class ProgressCard extends StatelessWidget {
                 Text(
                   "Tahap",
                   style: TextStyle(
-                    fontSize: 11.sp,
+                    fontSize: 10.sp,
                     color: phase.isActive ? Colors.white70 : Colors.grey,
                   ),
                 ),
