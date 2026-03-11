@@ -2,8 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ordo_test/components/bottom_sheet/akad_sheet.dart';
+import 'package:ordo_test/components/bottom_sheet/administrasi_sheet.dart';
+import 'package:ordo_test/components/bottom_sheet/pemesanan_sheet.dart';
+import 'package:ordo_test/components/bottom_sheet/pengembangan_sheet.dart';
 import 'package:ordo_test/components/sub_menu/progress_circle.dart';
-import 'package:ordo_test/components/sub_menu/progress_sheet.dart';
 import 'package:ordo_test/constants/theme.dart';
 import 'package:ordo_test/model/submenu_model.dart';
 
@@ -13,14 +16,33 @@ class ProgressCard extends StatelessWidget {
   const ProgressCard({super.key, required this.phase});
 
   void _showBottomSheet(BuildContext context) {
+    Widget sheet;
+    switch (phase.id) {
+      case "1":
+        sheet = const PemesananSheet();
+        break;
+      case "2":
+        sheet = const AdministrasiSheet();
+        break;
+      case "3":
+        sheet = const PengembanganSheet();
+        break;
+      case "4":
+        sheet = const AkadSheet();
+        break;
+      default:
+        return;
+    }
     showModalBottomSheet(
       context: context,
+      isScrollControlled: true,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
       ),
-      builder: (_) => PhaseBottomSheet(phase: phase),
+      builder: (_) => sheet,
     );
   }
+
 
   @override
   Widget build(BuildContext context) {

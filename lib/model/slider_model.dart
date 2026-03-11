@@ -8,6 +8,8 @@ class SliderModel {
   int price;
   String image;
   String type;
+  int? denda;
+  int? lateDays;
 
   SliderModel({
     required this.id,
@@ -17,6 +19,8 @@ class SliderModel {
     required this.price,
     required this.image,
     required this.type,
+    this.denda,
+    this.lateDays,
   });
 
   String get formattedDate {
@@ -28,4 +32,11 @@ class SliderModel {
     final formatter = NumberFormat.currency(locale: 'id_ID', symbol: 'Rp');
     return formatter.format(price);
   }
+
+  String get formattedDenda {
+    final formatter = NumberFormat.currency(locale: 'id_ID', symbol: 'Rp');
+    return formatter.format(denda ?? 0);
+  }
+
+  bool get hasDenda => denda != null && denda! > 0;
 }

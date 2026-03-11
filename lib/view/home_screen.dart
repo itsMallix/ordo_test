@@ -7,8 +7,6 @@ import 'package:ordo_test/components/home_comp/empty_widget.dart';
 import 'package:ordo_test/components/sub_menu/progress_card.dart';
 import 'package:ordo_test/constants/theme.dart';
 import 'package:ordo_test/data/submenu_data.dart';
-import 'package:ordo_test/model/submenu_model.dart';
-import 'package:ordo_test/view/test.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -101,7 +99,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       Text(
                         "Pesanan Terbaru",
-                        style: TextSystem.h2.copyWith(fontWeight: FontWeight.bold),
+                        style: TextSystem.h2.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       Text(
                         "Daftar pesanan terbaru anda",
@@ -167,7 +167,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     crossAxisCount: 2,
                     mainAxisSpacing: 15,
                     crossAxisSpacing: 15,
-                    // childAspectRatio: 3 / 2,
                   ),
                   itemBuilder: (context, index) {
                     return ProgressCard(phase: submenuList[index]);

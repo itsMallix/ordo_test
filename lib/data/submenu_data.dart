@@ -11,7 +11,7 @@ List<SubmenuModel> submenuList = [
     isActive: true,
     bgColor: ColorSystem.darkGreen,
     shadeColor: ColorSystem.darkGreenShade,
-    subtitle: 'Daftar menu thap akad dan serah terima',
+    subtitle: 'Daftar menu tahap pemesanan',
     icon: Icons.shopping_cart,
   ),
   SubmenuModel(

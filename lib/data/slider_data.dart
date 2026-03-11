@@ -19,4 +19,15 @@ List<SliderModel> sliderList = [
     image: "assets/images/house_3.png",
     type: "Komersil",
   ),
+  SliderModel(
+    id: "881726478124",
+    title: "Bukit Raya Residance",
+    address: "Jaguar, Kavling A1, Blok D No. 4",
+    timestamp: DateTime(2023, 12, 25, 9, 0),
+    price: 985799300,
+    image: "assets/images/house_3.png",
+    type: "Komersil",
+    denda: 8550000,
+    lateDays: 7,
+  ),
 ];
